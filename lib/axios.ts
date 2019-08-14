@@ -1,11 +1,11 @@
-import axios, { AxiosInstance, AxiosResponse } from "axios";
-import {CardsAPIError} from "./error";
+import axios, { AxiosInstance } from "axios";
+import { TBMError } from "./error";
 
 //TODO: use baseUrl property
 
 export class Axios {
 
-	axios: AxiosInstance;
+	private axios: AxiosInstance;
 
 	constructor(url: string) {
 		this.axios = axios.create({
@@ -21,12 +21,9 @@ export class Axios {
 			return result.data;
 		} catch (error) {
 			if (error.response) {
-				const errorData = error.response.data.error;
-				throw new CardsAPIError(errorData.status, errorData.message, errorData.details);
+				throw new TBMError(error.response.status, "An error occured", error.response);
 			} else if (error.request) {
-				console.log(error);
-
-				throw new CardsAPIError("EMPTY_RESPONSE", "No response received");
+				throw new TBMError("EMPTY_RESPONSE", "No response received");
 			} else {
 				throw error;
 			}
