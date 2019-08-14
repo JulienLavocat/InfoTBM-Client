@@ -1,5 +1,6 @@
 import { TBMApi } from "./api";
 import { Line } from "..";
+import { LineInformation } from "./models";
 
 export class TBMClient {
 
@@ -8,15 +9,16 @@ export class TBMClient {
 		const raw = await TBMApi.listLines();
 		return TBMClient.generateListLinesView(raw);
 	}
-
 	static async getLine(id: string) {
-
+		const raw = await TBMApi.line(id);
+		return TBMClient.generateGetLinesView(raw);
 	}
 
 	private static generateListLinesView(raw: any[]): Line[] {
-		const lines: Line[] = [];
-		raw.forEach(e => lines.push(new Line(e)));
-		return lines;
+		return raw.map(e => new Line(e));
+	}
+	private static generateGetLinesView(raw: any) {
+		return new LineInformation(raw);
 	}
 
 }

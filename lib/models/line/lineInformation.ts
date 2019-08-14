@@ -15,24 +15,28 @@ export class LineInformation {
 	hidden: boolean;
 	textColor: string;
 	picto: string;
+	pictoFile: string;
 	schedule: LineSchedule[];
 	map: LineMap[];
 	bgColor: string;
-
+	futureLineMaps: LineMap[];
 
 	constructor(opts: any) {
 		this.id = opts.id;
 		this.name = opts.name;
 		this.code = opts.code;
 		this.type = opts.type;
+		this.routes = Route.fromRawRoutes(opts.routes);
 		this.special = opts.isSpecial;
 		this.chartered = opts.isChartered;
 		this.hidden = opts.isHidden;
 		this.textColor = opts.textColor;
 		this.picto = opts.picto;
-		this.schedule = this.parseLineSchedule(opts.lineSchedules);
-		this.map= this.parseLineMap(opts.lineMaps);
+		this.pictoFile = opts.pictoFile;
+		this.schedule = LineSchedule.fromRawSchedule(opts.lineSchedules);
+		this.map= LineMap.fromRawMap(opts.lineMaps);
 		this.bgColor= opts.bgColor;
+		this.futureLineMaps = LineMap.fromRawMap(opts.futureLineMaps);
 	}
 
 	private parseLineSchedule(raw: any[]): LineSchedule[] {

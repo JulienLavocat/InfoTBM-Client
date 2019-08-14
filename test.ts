@@ -6,10 +6,8 @@ async function test() {
 
 	try {
 
-
-		const lines = await TBMClient.listLines();
-		console.log(lines[0]);
-
+		const lines = await TBMClient.getLine("line:TBC:01");
+		console.log(lines.routes[0].stopPointsOrder);
 
 	} catch (error) {
 		console.error(error);

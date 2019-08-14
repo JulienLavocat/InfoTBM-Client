@@ -28,20 +28,9 @@ export class Line {
 		this.hidden = opts.isHidden;
 		this.textColor = opts.textColor;
 		this.picto = opts.picto;
-		this.schedule = this.parseLineSchedule(opts.lineSchedules);
-		this.map= this.parseLineMap(opts.lineMaps);
+		this.schedule = LineSchedule.fromRawSchedule(opts.lineSchedules);
+		this.map	= LineMap.fromRawMap(opts.lineMaps);
 		this.bgColor= opts.bgColor;
-	}
-
-	private parseLineSchedule(raw: any[]): LineSchedule[] {
-		const schedule: LineSchedule[] = [];
-		raw.forEach(e => schedule.push(new LineSchedule(e)));
-		return schedule;
-	}
-	private parseLineMap(raw: any[]): LineMap[] {
-		const map: LineMap[] = [];
-		raw.forEach(e => map.push(new LineMap(e)));
-		return map;
 	}
 
 }

@@ -16,4 +16,8 @@ export class LineSchedule {
 		this.pdf = opts.pdf;
 	}
 
+	static fromRawSchedule(raw: any[]): LineSchedule[] {
+		return raw.map(e => new LineSchedule(e));
+	}
+
 }
