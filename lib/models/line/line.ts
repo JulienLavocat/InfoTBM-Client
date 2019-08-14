@@ -33,4 +33,8 @@ export class Line {
 		this.bgColor= opts.bgColor;
 	}
 
+	static fromRawListLines(raw: any[]): Line[] {
+		return raw.map(e => new Line(e));
+	}
+
 }
