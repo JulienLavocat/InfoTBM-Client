@@ -2,6 +2,7 @@ import { TBMApi } from "./api";
 import * as utils from "./utils";
 import { LineInformation, Line, SearchResult, StopPoint, StopArea } from "./models";
 import { NextPass } from "./models/nextPass";
+import { Alert } from "./models/alert";
 
 export class TBMClient {
 	static async listLines(): Promise<Line[]> {
@@ -27,5 +28,9 @@ export class TBMClient {
 			nextPasses[pass[0]] = NextPass.parse(pass[1]);
 		}
 		return nextPasses;
+	}
+	static async alerts(maxResults: number = 5) {
+		const res = await TBMApi.alerts(maxResults);
+		return Alert.parse(res.items);
 	}
 }

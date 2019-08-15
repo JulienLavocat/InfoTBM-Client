@@ -17,7 +17,10 @@ export class LineMap {
 	}
 
 	static fromRawMap(raw: any[]): LineMap[] {
-		return raw.map(e => new LineMap(e));
+		if(raw && raw.length > 0)
+			return raw.map(e => new LineMap(e));
+		else
+			return [];
 	}
 
 }

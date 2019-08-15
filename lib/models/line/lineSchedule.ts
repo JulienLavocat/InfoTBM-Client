@@ -17,7 +17,10 @@ export class LineSchedule {
 	}
 
 	static fromRawSchedule(raw: any[]): LineSchedule[] {
-		return raw.map(e => new LineSchedule(e));
+		if(raw && raw.length > 0)
+			return raw.map(e => new LineSchedule(e));
+		else
+			return [];
 	}
 
 }

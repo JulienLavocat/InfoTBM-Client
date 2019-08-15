@@ -30,7 +30,7 @@ export class Line {
 		this.picto = opts.picto;
 		this.schedule = LineSchedule.fromRawSchedule(opts.lineSchedules);
 		this.map = LineMap.fromRawMap(opts.lineMaps);
-		this.bgColor= opts.bgColor;
+		this.bgColor= opts.bgColor ? opts.bgColor : null;
 	}
 
 	static fromRawListLines(raw: any[]): Line[] {
