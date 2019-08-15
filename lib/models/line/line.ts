@@ -29,7 +29,7 @@ export class Line {
 		this.textColor = opts.textColor;
 		this.picto = opts.picto;
 		this.schedule = LineSchedule.fromRawSchedule(opts.lineSchedules);
-		this.map	= LineMap.fromRawMap(opts.lineMaps);
+		this.map = LineMap.fromRawMap(opts.lineMaps);
 		this.bgColor= opts.bgColor;
 	}
 

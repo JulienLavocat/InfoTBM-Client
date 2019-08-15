@@ -1,4 +1,5 @@
-import {TBMClient} from "./index";
+import {TBMClient, TBMApi} from "./index";
+import * as utils from "./lib/utils";
 
 test();
 
@@ -6,8 +7,10 @@ async function test() {
 
 	try {
 
-		const lines = await TBMClient.getLine("line:TBC:02");
-		console.log(lines.routes[0].stopPoints);
+		//console.log(await TBMApi.search("olympiades"));
+		console.log((await TBMApi.stopArea("stop_area:TBC:SA:STMERI")));
+		console.log((await TBMClient.stopArea("stop_area:TBC:SA:STMERI")));
+
 
 	} catch (error) {
 		console.error(error);

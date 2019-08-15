@@ -5,3 +5,5 @@ export * from "./line/lineMap";
 export * from "./line/lineInformation";
 export * from "./route";
 export * from "./stopPoint";
+export * from "./searchResult";
+export * from "./stopArea";

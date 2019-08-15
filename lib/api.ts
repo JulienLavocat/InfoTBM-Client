@@ -14,7 +14,7 @@ export class TBMApi {
 		return this.axios.get(`/network/line-informations/${id}`);
 	}
 
-	static searchStopPoints(query: string) {
+	static search(query: string) {
 		return this.axios.get(`/get-schedule/${query}`);
 	}
 
