@@ -1,6 +1,3 @@
-import { StopPoint } from "./stopPoint";
-import { Line } from "./line/line";
-
 export class StopArea {
 
 	id: string;
@@ -12,8 +9,8 @@ export class StopArea {
 	constructor(opts: any) {
 		this.id = opts.id;
 		this.name = opts.name;
-		this.latitude = opts.latitude;
-		this.longitude = opts.longitude;
+		this.latitude = Number(opts.latitude);
+		this.longitude = Number(opts.longitude);
 		this.stopPoints = StopAreaPoints.fromRawRoutes(opts.stopPoints);
 	}
 

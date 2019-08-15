@@ -1,6 +1,7 @@
 import { TBMApi } from "./api";
 import * as utils from "./utils";
 import { LineInformation, Line, SearchResult, StopPoint, StopArea } from "./models";
+import { NextPass } from "./models/nextPass";
 
 export class TBMClient {
 	static async listLines(): Promise<Line[]> {
@@ -18,5 +19,13 @@ export class TBMClient {
 	static async stopArea(id: string): Promise<StopArea> {
 		const res = await TBMApi.stopArea(id);
 		return new StopArea(res);
+	}
+	static async nextPass(stopId: number, lineName: string) {
+		const res = await TBMApi.getNextPass(stopId, lineName);
+		const nextPasses: any = {};
+		for(let pass of Object.entries<any>(res.destinations).values()) {
+			nextPasses[pass[0]] = NextPass.parse(pass[1]);
+		}
+		return nextPasses;
 	}
 }

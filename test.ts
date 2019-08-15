@@ -7,10 +7,9 @@ async function test() {
 
 	try {
 
-		//console.log(await TBMApi.search("olympiades"));
-		console.log((await TBMApi.stopArea("stop_area:TBC:SA:STMERI")));
-		console.log((await TBMClient.stopArea("stop_area:TBC:SA:STMERI")));
-
+		//console.log(await TBMClient.search("freres"));
+		//console.log((await TBMClient.stopArea("stop_area:TBT:SA:FRROBI")));
+		console.log((await TBMClient.nextPass(7333, "A"))[7337][0]);
 
 	} catch (error) {
 		console.error(error);
