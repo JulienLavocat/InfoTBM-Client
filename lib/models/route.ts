@@ -20,7 +20,7 @@ export class Route {
 		this.stopPointsOrder = opts.stopPointOrder;
 	}
 
-	static fromRawRoutes(raw: any[]): Route[] {
+	static parse(raw: any[]): Route[] {
 		return raw.map(e => new Route(e));
 	}
 

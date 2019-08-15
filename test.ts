@@ -10,7 +10,7 @@ async function test() {
 		//console.log(await TBMClient.search("freres"));
 		//console.log((await TBMClient.stopArea("stop_area:TBT:SA:FRROBI")));
 		//console.log((await TBMClient.nextPass(7333, "A"))[7337][0]);
-		console.log((await TBMClient.alerts()));
+		console.log((await TBMClient.alerts())[0].description);
 
 	} catch (error) {
 		console.error(error);

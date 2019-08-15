@@ -1,4 +1,4 @@
-import { Line } from "./line/line";
+import { Line } from "./line";
 
 const stripHtml = require("string-strip-html");
 

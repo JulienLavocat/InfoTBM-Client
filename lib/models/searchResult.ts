@@ -18,7 +18,7 @@ export class SearchResult {
 		this.url = opts.url;
 	}
 
-	static fromRawResults(raw: any[]): SearchResult[] {
+	static parse(raw: any[]): SearchResult[] {
 		return raw.map(e => new SearchResult(e));
 	}
 
